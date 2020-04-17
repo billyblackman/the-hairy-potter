@@ -6,9 +6,6 @@ import { saveGoodPottery, saveCrackedPottery } from "./potteryProvider.js"
 import { Kiln } from "./Kiln.js"
 import { Price } from "./Price.js"
 
- 
-
-
 const contentTarget = document.querySelector("#potteryFormContainer")
 
 export const PotteryForm = () => {
