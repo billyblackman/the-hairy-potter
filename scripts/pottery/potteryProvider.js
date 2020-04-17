@@ -28,7 +28,6 @@ export const saveGoodPottery = (pottery) => {
         body: JSON.stringify(pottery)
     })
         .then(getGoodPottery)
-        // .then(dispatchStateChangeEvent)
 }
 
 //Function to save piece of cracked pottery to database
@@ -42,5 +41,4 @@ export const saveCrackedPottery = (pottery) => {
         body: JSON.stringify(pottery)
     })
         .then(getCrackedPottery)
-        // .then(dispatchStateChangeEvent)
 }
