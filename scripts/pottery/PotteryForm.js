@@ -3,6 +3,7 @@
  * and to handle the event listeners involved with pottery creation
  */
 import { savePottery } from "./potteryProvider.js"
+import { Kiln } from "./Kiln.js"
 
  
 
@@ -45,11 +46,16 @@ contentTarget.addEventListener("click", clickEvent => {
 
 //Creating object with form inputs
 
-        const potteryObject = {
+        let potteryObject = {
             shape: shape,
             weight: weight,
-            height: height
+            height: height,
         }
+//Putting the piece of pottery in the kiln
+
+const heat = Math.floor(Math.random() * 15) +2190;
+
+        Kiln(potteryObject, heat)
 
 //If statement to make sure all fields are complete
 
