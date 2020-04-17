@@ -1,23 +1,46 @@
 //The purpose of this module is to provide access to pieces of pottery in the database and to add more pieces to the database
 
-let pottery = []
+let goodPottery = []
 
-export const usePottery = () => pottery.slice()
+export const useGoodPottery = () => goodPottery.slice()
 
-export const getPottery = () => fetch("http://localhost:8088/pottery")
+export const getGoodPottery = () => fetch("http://localhost:8088/goodPottery")
     .then(response => response.json())
-    .then(data => pottery = data)
-    
-//Function to save piece of pottery to database
+    .then(data => goodPottery = data)
+      
 
-export const savePottery = (pottery) => {
-    return fetch("http://localhost:8088/pottery", {
+let crackedPottery = []
+
+export const useCrackedPottery = () => crackedPottery.slice()
+    
+export const getCrackedPottery = () => fetch("http://localhost:8088/crackedPottery")
+    .then(response => response.json())
+    .then(data => crackedPottery = data)
+
+//Function to save piece of good pottery to database
+
+export const saveGoodPottery = (pottery) => {
+    return fetch("http://localhost:8088/goodPottery", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(pottery)
     })
-        .then(getPottery)
+        .then(getGoodPottery)
+        // .then(dispatchStateChangeEvent)
+}
+
+//Function to save piece of cracked pottery to database
+
+export const saveCrackedPottery = (pottery) => {
+    return fetch("http://localhost:8088/crackedPottery", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(pottery)
+    })
+        .then(getCrackedPottery)
         // .then(dispatchStateChangeEvent)
 }

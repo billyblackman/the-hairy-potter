@@ -1,5 +1,6 @@
-import { getPottery } from "./pottery/potteryProvider.js";
+import { getGoodPottery, getCrackedPottery } from "./pottery/potteryProvider.js";
 import { PotteryForm } from "./pottery/PotteryForm.js";
 
-getPottery()
+getGoodPottery()
+    .then(getCrackedPottery)
     .then(PotteryForm)

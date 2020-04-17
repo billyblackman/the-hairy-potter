@@ -2,8 +2,9 @@
  * The purpose of this module is to represent the pottery creation form
  * and to handle the event listeners involved with pottery creation
  */
-import { savePottery } from "./potteryProvider.js"
+import { saveGoodPottery, saveCrackedPottery } from "./potteryProvider.js"
 import { Kiln } from "./Kiln.js"
+import { Price } from "./Price.js"
 
  
 
@@ -60,7 +61,16 @@ const heat = Math.floor(Math.random() * 15) +2190;
 //If statement to make sure all fields are complete
 
         if (shape !== "" && weight !== "" && height !== "") {
-            savePottery(potteryObject)
+
+            if (potteryObject.cracked === false) {
+
+                Price(potteryObject)
+                saveGoodPottery(potteryObject)
+
+            } else if (potteryObject.cracked === true) {
+
+                saveCrackedPottery(potteryObject)
+            }
         } else alert("Please complete all fields")
     }
 })
