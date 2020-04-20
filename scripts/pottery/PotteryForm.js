@@ -12,19 +12,15 @@ const contentTarget = document.querySelector("#potteryFormContainer")
 export const PotteryForm = () => {
     contentTarget.innerHTML = `
     <h1>New Pottery Piece</h1>
-    <form class="form" action="">
+    <form id="potteryForm" class="form" action="">
         <fieldset>
             <label for="potteryShape">Shape</label>
             <input type="text" name="potteryShape" id="potteryShape">
         </fieldset>
-    </form>
-    <form class="form" action="">
         <fieldset>
             <label for="potteryWeight">Weight</label>
             <input type="number" name="potteryWeight" id="potteryWeight">
         </fieldset>
-    </form>
-    <form class="form" action="">
         <fieldset>
             <label for="potteryHeight">Height</label>
             <input type="number" name="potteryHeight" id="potteryHeight">
@@ -33,6 +29,8 @@ export const PotteryForm = () => {
     <button type="submit" id="potterySaveButton">Save piece</button>
     `
 }
+
+
 
 //Click event to save pottery entered into form
 
@@ -77,5 +75,13 @@ const heat = Math.floor(Math.random() * 15) +2190;
                 saveCrackedPottery(potteryObject)
             }
         } else alert("Please complete all fields")
+
+        //Click event to reset pottery form when submitted
+
+        contentTarget.addEventListener("click", clickEvent => {
+            if (clickEvent.target.id === "potterySaveButton") {
+                document.getElementById("potteryForm").reset()
+            }
+        })
     }
 })
