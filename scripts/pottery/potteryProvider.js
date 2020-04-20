@@ -47,6 +47,26 @@ export const saveCrackedPottery = (pottery) => {
         .then(dispatchStateChangeEvent)
 }
 
+//Function to delete a piece of pottery from the collection of good pottery
+
+export const deleteGoodPottery = (potteryId) => {
+    return fetch(`http://localhost:8088/goodPottery/${potteryId}`, {
+        method: "DELETE"
+    })
+        .then(getGoodPottery)
+        .then(dispatchStateChangeEvent)
+}
+
+//Function to delete a piece of pottery from the collection of cracked pottery
+
+export const deleteCrackedPottery = (potteryId) => {
+    return fetch(`http://localhost:8088/crackedPottery/${potteryId}`, {
+        method: "DELETE"
+    })
+        .then(getCrackedPottery)
+        .then(dispatchStateChangeEvent)
+}
+
 //Informs interested modules when the database has been updated
 
 const dispatchStateChangeEvent = () => {
