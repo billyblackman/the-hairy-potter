@@ -1,5 +1,7 @@
 //The purpose of this module is to provide access to pieces of pottery in the database and to add more pieces to the database
 
+const eventHub = document.querySelector("#container")
+
 let goodPottery = []
 
 export const useGoodPottery = () => goodPottery.slice()
@@ -28,6 +30,7 @@ export const saveGoodPottery = (pottery) => {
         body: JSON.stringify(pottery)
     })
         .then(getGoodPottery)
+        .then(dispatchStateChangeEvent)
 }
 
 //Function to save piece of cracked pottery to database
@@ -41,4 +44,14 @@ export const saveCrackedPottery = (pottery) => {
         body: JSON.stringify(pottery)
     })
         .then(getCrackedPottery)
+        .then(dispatchStateChangeEvent)
+}
+
+//Informs interested modules when the database has been updated
+
+const dispatchStateChangeEvent = () => {
+
+    const databaseStateChangedEvent = new CustomEvent("databaseStateChanged")
+
+    eventHub.dispatchEvent(databaseStateChangedEvent)
 }

@@ -6,7 +6,7 @@ export const Pottery = (potteryObject) => {
 
     eventHub.addEventListener("click", clickEvent => {
         if (clickEvent.target.id === `sellButton--${potteryObject.id}`) {
-            alert(`You sold a ${potteryObject.shape} piece of pottery for ${potteryObject.price} dollars!`)
+            alert(`You sold a ${potteryObject.shape} for $${potteryObject.price}`)
         }
     })
     
@@ -19,3 +19,4 @@ export const Pottery = (potteryObject) => {
     <button id="sellButton--${potteryObject.id}">Sell</button>
     `
 }
+
