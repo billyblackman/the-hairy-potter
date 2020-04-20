@@ -50,9 +50,9 @@ contentTarget.addEventListener("click", clickEvent => {
         }
 //Putting the piece of pottery in the kiln
 
-const heat = Math.floor(Math.random() * 15) +2190;
+        const heat = Math.floor(Math.random() * 15) +2190;
 
-        Kiln(potteryObject, heat)
+            Kiln(potteryObject, heat)
 
 /**
  * If statement to make sure all fields are complete
@@ -76,12 +76,9 @@ const heat = Math.floor(Math.random() * 15) +2190;
             }
         } else alert("Please complete all fields")
 
-        //Click event to reset pottery form when submitted
-
-        contentTarget.addEventListener("click", clickEvent => {
-            if (clickEvent.target.id === "potterySaveButton") {
-                document.getElementById("potteryForm").reset()
-            }
-        })
+//Resets pottery form
+        
+        document.getElementById("potteryForm").reset()
+        
     }
 })

@@ -1,6 +1,6 @@
 //The purpose of this module is to represent one piece of pottery with HTML
 
-import { deleteGoodPottery } from "./potteryProvider.js"
+import { deleteGoodPottery, sellPottery } from "./potteryProvider.js"
 
 const eventHub = document.querySelector("#container")
 
@@ -8,6 +8,7 @@ export const Pottery = (potteryObject) => {
 
     eventHub.addEventListener("click", clickEvent => {
         if (clickEvent.target.id === `sellButton--${potteryObject.id}`) {
+            sellPottery(potteryObject)
             deleteGoodPottery(potteryObject.id)
             alert(`You sold a ${potteryObject.shape} for $${potteryObject.price}`)
         }
@@ -21,5 +22,6 @@ export const Pottery = (potteryObject) => {
     <div>Price: ${potteryObject.price}</div>
     <button id="sellButton--${potteryObject.id}">Sell</button>
     `
+
 }
 
